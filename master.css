@@ -1,0 +1,40 @@
+body {
+  font-family: 'Baloo Tamma', cursive;
+}
+
+.splash-container {
+  margin: 0 auto;
+}
+
+.aquarium-container {
+  margin: 20px auto;
+  background: lightblue;
+  width: 800px;
+  height: 500px;
+  border: 3px solid lightgrey;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+button {
+  font-family: inherit;
+  margin: 5px;
+  padding: 10px;
+  font-size: 20px;
+  background: rgba(0, 255, 255, 0.2);
+  border: 2px solid rgba(0, 0, 255, 0.3);
+  border-radius: 8px;
+  box-shadow: 0px 0px 7px rgba(213, 120, 141, 0.68);
+  color: rgba(0, 0, 255, 0.5);
+}
+
+button:hover {
+  box-shadow: none;
+  background: rgba(0, 177, 255, 0.2);
+  transition: 0.5s all ease-in-out;
+  cursor: pointer;
+}
