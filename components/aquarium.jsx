@@ -1,14 +1,54 @@
 import React from 'react';
 
 export default class Aquarium extends React.Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
+  }
+
+  octopus (className) {
+    return (
+      <div className={className}>
+        <svg width="140px" height="141px" viewBox="182 168 140 141" version="1.1">
+            <defs>
+                <radialGradient cx="71.5515196%" cy="14.2396808%" fx="71.5515196%" fy="14.2396808%" r="57.4703546%" id="radialGradient-1">
+                    <stop stopColor="#F5E2FF" offset="0%"></stop>
+                    <stop stopColor="#EDD0FF" offset="7.48624574%"></stop>
+                    <stop stopColor="#9800FF" offset="100%"></stop>
+                </radialGradient>
+            </defs>
+            <g id="Group" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" transform="translate(184.000000, 170.000000)">
+                <path d="M61.4198878,92.9784917 C64.685801,93.797246 68.0913538,94.2304104 71.5918841,94.2304104 C74.8307051,94.2304104 77.9882193,93.859594 81.0290515,93.1556431 C80.2449256,107.20575 79.5003314,140.276956 90.2218191,136.279375 C102.671838,131.6373 94.8005134,94.2328221 93.419503,88.1030641 C96.8991728,85.9959196 100.084253,83.400503 102.892607,80.4043073 C112.927463,92.395723 130.528596,111.253554 135.23802,102.226724 C140.157739,92.7968093 121.354032,76.479022 111.024345,68.4802805 C114.092662,62.0673749 115.822796,54.8065128 115.822796,47.1152052 C115.822796,21.0941959 96.0199424,0 71.5918841,0 C47.1638258,0 27.3609718,21.0941959 27.3609718,47.1152052 C27.3609718,52.7888124 28.3024235,58.2281929 30.0279975,63.2657579 C21.4585307,68.8521711 -5.01933176,87.2116058 0.837595134,97.2098906 C6.00181597,106.025666 26.0739906,86.122978 36.1058169,75.2446756 C39.5524869,80.1702781 43.8816624,84.3539447 48.8439109,87.5299774 C42.4548284,100.643302 29.7506537,129.392044 40.9104887,129.889379 C51.7350762,130.371774 58.6331876,105.519465 61.4198878,92.9784917 Z" id="Combined-Shape" stroke="#C3B8FF" strokeWidth="3" fill="url(#radialGradient-1)"></path>
+                <path d="M55.8697583,45 C55.8790531,44.9228355 55.8837891,44.844827 55.8837891,44.7660911 C55.8837891,43.1526482 53.8950851,41.8446943 51.4418945,41.8446943 C48.9887039,41.8446943 47,43.1526482 47,44.7660911 C47,44.844827 47.004736,44.9228355 47.0140308,45 L55.8697583,45 Z" id="Combined-Shape" fill="#000000"></path>
+                <path d="M76.8697583,46.1553057 C76.8790531,46.0781412 76.8837891,46.0001327 76.8837891,45.9213968 C76.8837891,44.3079539 74.8950851,43 72.4418945,43 C69.9887039,43 68,44.3079539 68,45.9213968 C68,46.0001327 68.004736,46.0781412 68.0140308,46.1553057 L76.8697583,46.1553057 Z" id="Combined-Shape" fill="#000000"></path>
+                <path d="M47.2011719,55.2402344 C47.2011719,55.2402344 60.0839844,61.8007812 75.3476562,56.0019531" id="Path-3" stroke="#000000"></path>
+            </g>
+        </svg>
+      </div>
+    )
+  }
+
+  renderOctopi () {
+    return this.props.octopi.map((octopus, idx) => {
+      // let xCoord = octopus.xCoord;
+      // let yCoord = octopus.yCoord;
+      let className = "octopus" + idx.toString();
+      return (
+        <div id="octopus" key={idx}>
+          {this.octopus(className)}
+        </div>
+      )
+    });
+  }
+
+  octopiSwim () {
+    this.props.octopi.map(octopus => octopus.swim());
   }
 
   render () {
+    this.octopiSwim();
     return (
-      <div className="aquarium-container">
-      
+      <div className="octopus-container">
+        {this.renderOctopi()}
       </div>
     );
   }
